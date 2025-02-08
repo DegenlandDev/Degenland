@@ -1,136 +1,111 @@
-import { useWallet } from '@solana/wallet-adapter-react'
-import { useWalletModal } from '@solana/wallet-adapter-react-ui'
-import React from 'react'
-import styled from 'styled-components'
-import { useUserStore } from '../../hooks/useUserStore'
+"use client";
 
-const Buttons = styled.div`
-  overflow: hidden;
+import { FaXTwitter } from "react-icons/fa6";
+import React from "react";
+import styled from "styled-components";
+const Header = styled.header`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  text-align: center;
+  gap: 1.5rem;
+`;
 
-  @media (min-width: 800px) {
-    height: 100%;
+const Logo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
   }
 
-  @media (max-width: 800px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 0!important;
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
   }
 
-  & > button {
-    border: none;
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px;
-    background: #ffffffdf;
-    transition: background-color .2s ease;
-    color: black;
-    cursor: pointer;
-    &:hover {
-      background: white;
+  @media (max-width: 640px) {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
     }
   }
-`
+`;
 
-const Welcome = styled.div`
-  @keyframes welcome-fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes backgroundGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  background: linear-gradient(-45deg, #ffb07c, #ff3e88, #2969ff, #ef3cff, #ff3c87);
-  background-size: 300% 300%;
-  animation: welcome-fade-in .5s ease, backgroundGradient 30s ease infinite;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
+const SocialLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-  filter: drop-shadow(0 4px 3px rgba(0,0,0,.07)) drop-shadow(0 2px 2px rgba(0,0,0,.06));
+  gap: 1.5rem;
 
-  & img {
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    width: 100px;
-    height: 100px;
-    top: 0;
-    right: 0;
-    &:nth-child(1) {animation-delay: 0s;}
-    &:nth-child(2) {animation-delay: 1s;}
-  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
 
-  & > div {
-    padding: 0px;
-    filter: drop-shadow(0 4px 3px rgba(0,0,0,.07)) drop-shadow(0 2px 2px rgba(0,0,0,.06));
-  }
-
-  @media (min-width: 800px) {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    padding: 0;
-    & > div {
-      padding: 40px;
+    &:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
     }
   }
-`
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+const Description = styled.p`
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+
+  @media (max-width: 640px) {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+`;
 
 export function WelcomeBanner() {
-  const wallet = useWallet()
-  const walletModal = useWalletModal()
-  const store = useUserStore()
-  const copyInvite = () => {
-    store.set({ userModal: true })
-    if (!wallet.connected) {
-      walletModal.setVisible(true)
-    }
-  }
-
   return (
-    <Welcome>
-      <div>
-        <h1>Welcome to Degen Land 👋</h1>
-        <p>
-          A fair, simple and decentralized casino on Solana.
-        </p>
-      </div>
-      <Buttons>
-        <button onClick={copyInvite}>
-          💸 Copy Invite
-        </button>
-        <button onClick={() => window.open('https://v2.gamba.so/', '_blank')}>
-          🚀 Add Liquidity
-        </button>
-        <button onClick={() => window.open('https://discord.gg/HSTtFFwR', '_blank')}>
-          💬 Discord
-        </button>
-      </Buttons>
-    </Welcome>
-  )
+    <Header>
+      <Logo>
+        <img src="/full-logo-transparent.png" alt="Degen Land" />
+        <h1>Degen Land</h1>
+      </Logo>
+      <Description>
+        A fair, simple and decentralized casino on Solana 🎰🎲
+      </Description>
+      <SocialLinks>
+        <a
+          href="https://x.com/degenlandcasino"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaXTwitter size={20} />
+          Follow us on X
+        </a>
+      </SocialLinks>
+    </Header>
+  );
 }

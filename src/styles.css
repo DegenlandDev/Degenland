@@ -5,29 +5,35 @@
 :root {
   --background-color: #0b0b0e;
   --text-color: #ffffff;
-  --gamba-ui-primary-color: #9564ff;
+  --gamba-ui-primary-color: #f8cc3a;
 
   --gamba-ui-border-radius: 10px;
 
   --gamba-ui-button-default-background: #0e0e16;
   --gamba-ui-button-default-background-hover: #11111d;
-  --gamba-ui-button-default-color: white;
+  --gamba-ui-button-default-color: #ffffff;
 
-  --gamba-ui-button-main-background: #8851ff;
-  --gamba-ui-button-main-color: white;
-  --gamba-ui-button-main-background-hover: #9564ff;
+  --gamba-ui-button-main-background: #f8cc3a;
+  --gamba-ui-button-main-color: #0e0e16;
+  --gamba-ui-button-main-background-hover: #fed95d;
 
   --gamba-ui-input-background: #0e0e16;
   --gamba-ui-input-color: #ffffff;
   --gamba-ui-input-background-hover: #11111d;
 }
 
-body, input, button, textarea, pre {
-  font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body,
+input,
+button,
+textarea,
+pre {
+  font-family: "DM Sans", "Roboto", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-size: 16px;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0;
 }
 
