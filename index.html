@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#000000" />
-    <title>Play | Gamba</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/icon-512.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="manifest" href="/manifest.webmanifest">
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script type="module">
-      import * as buffer from 'buffer'
-      window.Buffer = buffer.Buffer
-    </script>
-    <script type="module" src="./src/index.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f8cc3a" />
+  <title>Degen Land</title>
+
+  <link rel="icon" type="image/png" href="/full-logo-transparent.png">
+  <link rel="apple-touch-icon" href="/full-logo.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="Degen Land">
+  <meta property="og:description" content="A fair, simple and decentralized casino on Solana 🎰🎲">
+  <meta property="og:image" content="https://degenland.vercel.app/full-logo.png">
+  <meta property="og:url" content="https://degenland.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@DegenLandCasino">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A fair, simple and decentralized casino on Solana 🎰🎲">
+  <meta name="keywords" content="crypto casino, Solana gambling, decentralized gaming, fair play casino, web3 casino">
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <script type="module">
+    import * as buffer from 'buffer';
+    window.Buffer = buffer.Buffer;
+  </script>
+
+  <script type="module" src="./src/index.tsx"></script>
+</body>
+
 </html>
